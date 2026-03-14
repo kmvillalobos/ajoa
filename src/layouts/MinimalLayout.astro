@@ -15,7 +15,7 @@
  * </MinimalLayout>
  * ```
  */
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "@/styles/globals.css";
 import SEO from "@/components/SEO.astro";
 import FontPreload from "@/components/FontPreload.astro";
@@ -52,7 +52,7 @@ const fullTitle = `${title} | AstroDeck`;
       image={image}
       noindex={noindex}
     />
-    <ViewTransitions />
+    <ClientRouter />
     <ThemeScript />
   </head>
   <body class="min-h-screen antialiased">
