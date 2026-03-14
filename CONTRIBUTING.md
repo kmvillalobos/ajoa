@@ -33,7 +33,7 @@ This project and everyone participating in it is governed by our commitment to c
 
 ### Prerequisites
 
-- Node.js 18.17.0 or higher
+- Node.js 22.0.0 or higher
 - npm (comes with Node.js)
 - Git
 
@@ -227,7 +227,7 @@ Use mobile-first approach with Tailwind breakpoints:
 ### Quick Context for AI
 
 **Project Type:** Component library for Astro.js
-**Stack:** Astro v5.x (latest) + Tailwind CSS v4.x (latest) + shadcn/ui + TypeScript (latest)
+**Stack:** Astro v6.x (latest) + Tailwind CSS v4.x (latest) + shadcn/ui + TypeScript (latest)
 **Purpose:** Pre-built sections for landing pages
 
 **CRITICAL:**

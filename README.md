@@ -1,7 +1,7 @@
 # AstroDeck
 
-[![Version](https://img.shields.io/badge/version-1.5.1-blue.svg)](https://github.com/holger1411/astrodeck/releases)
-[![Astro](https://img.shields.io/badge/Astro-5.x%20%7C%206.x-orange.svg)](https://astro.build)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/holger1411/astrodeck/releases)
+[![Astro](https://img.shields.io/badge/Astro-6.x-orange.svg)](https://astro.build)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **A modern, open-source component library and starter kit for building stunning Astro.js websites in minutes. Built AI-friendly for seamless development with Claude, Cursor, and other coding assistants.**
@@ -58,7 +58,7 @@ AstroDeck provides pre-built, production-ready components that help you launch l
 
 Before you begin, ensure you have the following installed on your machine:
 
-- **Node.js** - Version 18.17.0 or higher (latest LTS recommended)
+- **Node.js** - Version 22.0.0 or higher (latest LTS recommended)
 - **npm** - Comes with Node.js (or use yarn/pnpm)
 - **Git** - For cloning the repository
 
@@ -118,11 +118,11 @@ Download the latest release directly:
 
 ```bash
 # Download the latest version
-wget https://github.com/holger1411/astrodeck/archive/refs/tags/v1.5.1.zip
+wget https://github.com/holger1411/astrodeck/archive/refs/tags/v2.0.0.zip
 
 # Extract
-unzip v1.5.1.zip
-cd astrodeck-1.5.1
+unzip v2.0.0.zip
+cd astrodeck-2.0.0
 
 # Install and run
 npm install
@@ -175,7 +175,7 @@ This command:
 **Expected output:**
 
 ```
-  🚀  astro  v5.x.x started in 234ms
+  🚀  astro  v6.x.x started in 234ms
 
   ┃ Local    http://localhost:4321/
   ┃ Network  use --host to expose
@@ -248,7 +248,6 @@ astrodeck/
 │   │   └── utils.ts        # Helper functions
 │   └── env.d.ts            # TypeScript definitions
 ├── astro.config.mjs        # Astro configuration
-├── tailwind.config.mjs     # Tailwind CSS configuration
 ├── tsconfig.json           # TypeScript configuration
 └── package.json            # Dependencies and scripts
 ```
@@ -736,7 +735,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
       - run: npm ci
       - run: npm run build
       - uses: peaceiris/actions-gh-pages@v3
@@ -759,7 +758,7 @@ AstroDeck works with:
 All require the same build settings:
 - **Build command**: `npm run build`
 - **Publish directory**: `dist`
-- **Node version**: 18 or higher
+- **Node version**: 22 or higher
 
 ---
 
@@ -819,10 +818,7 @@ npm run build
 **Problem:** Tailwind classes not working
 
 **Solution:**
-1. Check if file is included in `tailwind.config.mjs`:
-```js
-content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}']
-```
+1. Tailwind CSS v4 uses CSS-based configuration in `src/styles/globals.css` (no `tailwind.config.mjs`)
 2. Restart dev server after config changes
 3. Check for typos in class names
 
@@ -1020,7 +1016,7 @@ See `PROJECT.md` for a complete template with examples.
 #### `AGENTS.md` - AstroDeck Defaults
 
 The main configuration file containing:
-- Project overview and tech stack (Astro v5, Tailwind v4)
+- Project overview and tech stack (Astro v6, Tailwind v4)
 - Code conventions and patterns
 - Import aliases and file organization
 - Do's and Don'ts for code generation
@@ -1061,7 +1057,7 @@ Pre-built commands for common tasks:
 
 **For AI Assistants:**
 - 🎯 Understanding of project structure and patterns
-- 🎯 Knowledge of tech stack specifics (Tailwind v4, Astro v5)
+- 🎯 Knowledge of tech stack specifics (Tailwind v4, Astro v6)
 - 🎯 Awareness of coding conventions (imports, styling, types)
 - 🎯 Context for generating appropriate solutions
 - 🎯 Ability to provide better explanations

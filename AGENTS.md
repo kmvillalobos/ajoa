@@ -66,7 +66,7 @@ AstroDeck is designed to be AI-friendly and serves as your **starting point** fo
 
 ```
 ┌─────────────────────────────────────┐
-│         Astro v5.x (latest)         │  ← Framework (island architecture)
+│         Astro v6.x (latest)         │  ← Framework (island architecture)
 ├─────────────────────────────────────┤
 │    Tailwind CSS v4.x (latest)       │  ← Styling (utility-first)
 │         via @tailwindcss/vite       │  ← Uses Vite plugin (NOT Astro integration)
@@ -304,21 +304,21 @@ const description = "SEO description (150-160 characters ideal)";
 
 ## Theme System
 
-Colors are defined as CSS variables in `src/styles/globals.css`:
+Colors are defined as CSS variables in `src/styles/globals.css` using **OKLCH format** (Tailwind v4):
 
 ```css
-:root {
-  --background: 0 0% 100%;        /* Light mode background */
-  --foreground: 222 47% 11%;      /* Light mode text */
-  --primary: 221 83% 53%;         /* Primary color */
-  --primary-foreground: 0 0% 100%;
-  --muted: 210 40% 96%;
-  --muted-foreground: 215 16% 47%;
+@theme {
+  --color-background: oklch(100% 0 0);        /* Light mode background */
+  --color-foreground: oklch(9.8% 0.0016 286.75); /* Light mode text */
+  --color-primary: oklch(11.2% 0.0079 286.75);   /* Primary color */
+  --color-primary-foreground: oklch(98% 0.0011 286.75);
+  --color-muted: oklch(96.1% 0.0011 286.75);
+  --color-muted-foreground: oklch(55.6% 0.0117 286.75);
 }
 
 .dark {
-  --background: 222 47% 11%;      /* Dark mode background */
-  --foreground: 0 0% 100%;        /* Dark mode text */
+  --color-background: oklch(1.5% 0 0);        /* Dark mode background */
+  --color-foreground: oklch(98% 0 0);          /* Dark mode text */
 }
 ```
 
