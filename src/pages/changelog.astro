@@ -175,13 +175,12 @@ const tagStyles: Record<string, { bg: string; text: string; label: string }> = {
 
       <div class="space-y-12">
         {releases.map((release, index) => (
-          <article class:list={["relative pl-10", index === 0 && "rounded-xl border bg-card p-6 -ml-2 pl-12"]}>
+          <article class:list={["relative pl-10", index === 0 && "bg-foreground/5 rounded-xl py-5 px-5 -my-5 -ml-3 pl-[3.25rem]"]}>
             <!-- Timeline dot -->
             <div
               class:list={[
-                "absolute top-2 w-[15px] h-[15px] rounded-full border-2 border-background",
-                index === 0 ? "left-[-2px] lg:left-[-9px] bg-primary ring-4 ring-primary/20" : "left-0",
-                index !== 0 && (release.tag === "major" ? "bg-primary" : "bg-muted-foreground/40"),
+                "absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-background",
+                index === 0 ? "bg-primary" : (release.tag === "major" ? "bg-primary" : "bg-muted-foreground/40"),
               ]}
               aria-hidden="true"
             />
