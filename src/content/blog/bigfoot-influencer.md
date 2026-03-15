@@ -1,7 +1,7 @@
 ---
 title: "Bigfoot Becomes Instagram Influencer, Still Nobody Believes He's Real"
 description: "Cryptid's million-follower account dismissed as 'really good CGI'"
-pubDate: 2025-12-14
+pubDate: 2026-01-22
 author: "Cryptid Social Media Digest"
 tags: ["humor", "social-media", "cryptozoology"]
 ---

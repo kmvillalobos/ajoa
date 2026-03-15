@@ -1,7 +1,7 @@
 ---
 title: "Unicorn Raises $50M in Series A, Turns Out to Be an Actual Unicorn"
 description: "Silicon Valley investors embarrassed after discovering their hottest investment is literally a horse with a horn"
-pubDate: 2025-12-26
+pubDate: 2026-03-15
 author: "TechCritter Weekly"
 tags: ["humor", "business", "mythology"]
 ---

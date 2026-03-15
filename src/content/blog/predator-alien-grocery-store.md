@@ -1,7 +1,7 @@
 ---
 title: "Predator & Alien Open Galaxy's First Intergalactic Grocery Store"
 description: "Two unlikely business partners bring fresh produce and existential dread to your neighborhood shopping experience"
-pubDate: 2025-12-15
+pubDate: 2026-02-03
 author: "Cosmic Commerce Reporter"
 tags: ["humor", "business", "sci-fi"]
 ---

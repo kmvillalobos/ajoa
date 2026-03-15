@@ -1,7 +1,7 @@
 ---
 title: "Frankenstein's Monster Joins Dating App, Profile Says 'No Drama'"
 description: "Reanimated creature seeks connection, discovers modern dating is the real horror"
-pubDate: 2025-12-09
+pubDate: 2025-12-02
 author: "Supernatural Singles Weekly"
 tags: ["humor", "dating", "horror"]
 ---

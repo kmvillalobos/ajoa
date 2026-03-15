@@ -1,7 +1,7 @@
 ---
 title: "Centaur Dominates Food Delivery Apps, Claims 'No Bike Needed'"
 description: "Half-horse courier averages 47 deliveries per hour, refuses to wear the branded backpack"
-pubDate: 2025-12-20
+pubDate: 2026-03-05
 author: "Gig Economy Gazette"
 tags: ["humor", "work", "mythology"]
 ---

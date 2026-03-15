@@ -1,7 +1,7 @@
 ---
 title: "Troll Loses Bridge to City Infrastructure Project, Forced to Learn New Skills"
 description: "Ancient bridge guardian discovers eminent domain is scarier than knights"
-pubDate: 2025-12-07
+pubDate: 2025-11-05
 author: "Municipal Development News"
 tags: ["humor", "work", "mythology"]
 ---

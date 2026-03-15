@@ -1,7 +1,7 @@
 ---
 title: "Kraken Becomes City's Most Requested Plumber, 8 Arms 'A Game Changer'"
 description: "Sea monster's ability to fix 8 leaks simultaneously earns 5-star reviews across the tristate area"
-pubDate: 2025-12-22
+pubDate: 2026-03-11
 author: "Maritime Trades Journal"
 tags: ["humor", "work", "mythology"]
 ---

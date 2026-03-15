@@ -1,7 +1,7 @@
 ---
 title: "Wizard Calls Tech Support, Accidentally Turns Agent Into Frog"
 description: "Ancient sorcerer discovers that 'Have you tried turning it off and on again' doesn't work on crystal balls"
-pubDate: 2025-12-08
+pubDate: 2025-11-18
 author: "Magical IT Department"
 tags: ["humor", "technology", "magic"]
 ---

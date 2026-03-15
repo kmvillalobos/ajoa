@@ -1,7 +1,7 @@
 ---
 title: "Ancient Mummy Applies for Museum Job, Gets Rejected for Lack of Experience"
 description: "5000-year-old artifact told they need 'at least 7000 years in customer service'"
-pubDate: 2025-12-11
+pubDate: 2025-12-28
 author: "Archaeological Employment News"
 tags: ["humor", "work", "history"]
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Medusa Opens Hair Salon, Promises 'Looks That Will Petrify You'"
 description: "Gorgon's new salon offers the most permanent hairstyles in the industry — literally"
-pubDate: 2025-12-18
+pubDate: 2026-02-28
 author: "Mythical Beauty Review"
 tags: ["humor", "business", "mythology"]
 ---

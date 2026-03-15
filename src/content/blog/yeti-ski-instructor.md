@@ -1,7 +1,7 @@
 ---
 title: "Yeti Hired as Ski Instructor, Guests Describe Experience as 'Chilling'"
 description: "Alpine resort's newest employee claims 200,000 years of mountain experience"
-pubDate: 2025-12-16
+pubDate: 2026-02-21
 author: "Winter Sports Paranormal"
 tags: ["humor", "work", "cryptozoology"]
 ---

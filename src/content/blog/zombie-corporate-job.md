@@ -1,7 +1,7 @@
 ---
 title: "Zombie Gets Promoted to Middle Management, Nobody Notices the Difference"
 description: "Undead employee seamlessly integrates into corporate culture through strategic groaning"
-pubDate: 2025-12-12
+pubDate: 2026-01-09
 author: "Corporate Undead Weekly"
 tags: ["humor", "work", "horror"]
 ---

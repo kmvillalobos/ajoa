@@ -1,7 +1,7 @@
 ---
 title: "Local Vampire and Werewolf Open 24-Hour Coffee Shop, Immediately Regret It"
 description: "Nocturnal entrepreneurs discover that running a business requires more than just being awake at night"
-pubDate: 2025-12-10
+pubDate: 2025-12-14
 author: "Night Shift Chronicles"
 tags: ["humor", "business", "supernatural"]
 ---

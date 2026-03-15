@@ -1,7 +1,7 @@
 ---
 title: "Dragon Receives 47 HOA Violations, Burns Down Mailbox in Response"
 description: "Ancient beast discovers suburban living is more terrifying than knights ever were"
-pubDate: 2025-12-16
+pubDate: 2026-02-14
 author: "Suburban Dragons Weekly"
 tags: ["humor", "housing", "mythology"]
 ---

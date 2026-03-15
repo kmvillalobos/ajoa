@@ -1,7 +1,7 @@
 ---
 title: "Ghost Fired From Remote Job for 'Being Too Transparent'"
 description: "Paranormal employee discovers corporate culture doesn't appreciate literal honesty"
-pubDate: 2025-12-22
+pubDate: 2026-03-08
 author: "Workplace Paranormal Report"
 tags: ["humor", "work", "supernatural"]
 ---
