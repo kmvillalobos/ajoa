@@ -1,6 +1,6 @@
 # AstroDeck
 
-[![Version](https://img.shields.io/badge/version-2.0.2-blue.svg)](https://github.com/holger1411/astrodeck/releases)
+[![Version](https://img.shields.io/badge/version-2.0.3-blue.svg)](https://github.com/holger1411/astrodeck/releases)
 [![Astro](https://img.shields.io/badge/Astro-6.x-orange.svg)](https://astro.build)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 

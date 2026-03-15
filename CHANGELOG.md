@@ -2,6 +2,26 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [2.0.3] - 2026-03-15
+
+### Added
+
+- Documentation page (`/docs`) with AI-first two-column layout — each task shown as AI prompt and manual steps
+- 9 docs sections: Getting Started, Create Page, Add Section, Custom Component, Theme & Colors, Design Tokens, Blog Post, Build & Deploy, Project Structure
+- Design Tokens reference table with all CSS custom properties and Tailwind utility mappings
+- Mobile collapsible "On this page" sub-navigation for `/docs` and `/sections` pages
+- Header navigation dropdown: Blog, Content, Login grouped under "Pages"
+- Active page highlighting in main navigation (`aria-current="page"`)
+- Responsive design checks added to AstroDeck agent and QA/UI-design skills
+
+### Changed
+
+- `/docs` and `/sections` use FullWidthLayout with consistent `px-6 md:px-12` padding
+- Sidebar nav hover respects active state (no more unreadable text on hover)
+- All cards and code blocks use `rounded-xl` per design system
+- Touch targets increased to 44px minimum on nav links
+- Scroll margin accounts for dual sticky bars on mobile (`scroll-mt-32 lg:scroll-mt-20`)
+
 ## [2.0.2] - 2026-03-15
 
 ### Added
