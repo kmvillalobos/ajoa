@@ -175,12 +175,13 @@ const tagStyles: Record<string, { bg: string; text: string; label: string }> = {
 
       <div class="space-y-12">
         {releases.map((release, index) => (
-          <article class="relative pl-10">
+          <article class:list={["relative pl-10", index === 0 && "rounded-xl border bg-card p-6 -ml-2 pl-12"]}>
             <!-- Timeline dot -->
             <div
               class:list={[
-                "absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-background",
-                release.tag === "major" ? "bg-primary" : "bg-muted-foreground/40",
+                "absolute top-2 w-[15px] h-[15px] rounded-full border-2 border-background",
+                index === 0 ? "left-[-2px] lg:left-[-9px] bg-primary ring-4 ring-primary/20" : "left-0",
+                index !== 0 && (release.tag === "major" ? "bg-primary" : "bg-muted-foreground/40"),
               ]}
               aria-hidden="true"
             />
@@ -188,6 +189,11 @@ const tagStyles: Record<string, { bg: string; text: string; label: string }> = {
             <!-- Version header -->
             <div class="flex flex-wrap items-center gap-3 mb-3">
               <h2 class="text-2xl font-bold">v{release.version}</h2>
+              {index === 0 && (
+                <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-primary text-primary-foreground">
+                  Latest
+                </span>
+              )}
               <span
                 class:list={[
                   "px-2 py-0.5 rounded-md text-xs font-semibold",
