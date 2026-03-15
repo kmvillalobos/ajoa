@@ -29,6 +29,10 @@ const description = "[SEO description, 150-160 chars]";
 </[Layout]>
 ```
 
+## Skills
+
+Für Patterns: `astro` und `content-seo` Skills konsultieren (`.claude/skills/astro/SKILL.md`, `.claude/skills/content-seo/SKILL.md`).
+
 ## Checklist Before Done
 
 - [ ] File created in `src/pages/[name].astro`

@@ -83,6 +83,10 @@ User wants: "Make primary color forest green"
 - **Test contrast** - primary-foreground must be readable on primary (4.5:1 minimum)
 - **Never create a tailwind.config.mjs** - Tailwind v4 uses CSS-based config only
 
+## Skills
+
+Für Farbtheorie und Utility-Patterns: `ui-design` und `tailwind` Skills konsultieren (`.claude/skills/ui-design/SKILL.md`, `.claude/skills/tailwind/SKILL.md`).
+
 ## Checklist
 
 - [ ] Colors in correct OKLCH format

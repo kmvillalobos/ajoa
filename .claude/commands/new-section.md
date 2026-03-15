@@ -52,6 +52,10 @@ const variantClasses = {
 </section>
 ```
 
+## Skills
+
+Für Patterns: `astro` und `ui-design` Skills konsultieren (`.claude/skills/astro/SKILL.md`, `.claude/skills/ui-design/SKILL.md`).
+
 ## Checklist Before Done
 
 - [ ] File created in `src/components/sections/[Name].astro`

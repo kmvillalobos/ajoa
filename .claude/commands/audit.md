@@ -63,6 +63,10 @@ Verify each page has:
 - [ ] Both `@theme` and `.dark` blocks are in sync
 - [ ] No inline styles (`style="..."`)
 
+## Skills
+
+Für Details: `qa` und `accessibility` Skills konsultieren (`.claude/skills/qa/SKILL.md`, `.claude/skills/accessibility/SKILL.md`).
+
 ## Output Format
 
 ```markdown
