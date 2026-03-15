@@ -149,8 +149,8 @@ const releases = [
 
 const tagStyles: Record<string, { bg: string; text: string; label: string }> = {
   major: { bg: "bg-primary", text: "text-primary-foreground", label: "Major" },
-  minor: { bg: "bg-secondary", text: "text-secondary-foreground", label: "Minor" },
-  patch: { bg: "bg-muted", text: "text-muted-foreground", label: "Patch" },
+  minor: { bg: "bg-foreground/10 border border-foreground/20", text: "text-foreground", label: "Minor" },
+  patch: { bg: "bg-foreground/5 border border-foreground/15", text: "text-muted-foreground", label: "Patch" },
 };
 ---
 
