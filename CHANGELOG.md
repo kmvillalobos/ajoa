@@ -2,6 +2,26 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [2.0.4] - 2026-03-15
+
+### Added
+
+- Changelog: latest release highlighted with larger pulsing timeline dot and "Latest" badge
+- Hero version badge now links to `/changelog` page
+- 5 new funny fictional blog posts (Unicorn Startup, Kraken Plumber, Centaur Delivery, Medusa Hairstylist, Yeti Ski Instructor)
+
+### Changed
+
+- Footer restructured into "AstroDeck" (Home, Docs, Sections, Changelog) and "Pages" (Blog, Content, Login) columns
+- Changelog badges use semi-transparent foreground colors for dark mode visibility
+- All changelog dates corrected to match actual GitHub release dates
+- Blog post dates spread from November 2025 to March 2026
+
+### Removed
+
+- 5 real tutorial blog posts replaced with fictional examples
+- "Built With" column removed from footer
+
 ## [2.0.3] - 2026-03-15
 
 ### Added
