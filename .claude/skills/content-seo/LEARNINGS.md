@@ -1,8 +1,8 @@
 # Learnings — Content & SEO
 
-## Was funktioniert
-- Title ohne Brand-Duplikat: Layout hängt `| AstroDeck` automatisch an, daher Page-Title ohne "AstroDeck" übergeben → sauberer `<title>` Tag (2026-03-15)
+## What works
+- Title without brand duplication: Layout appends `| AstroDeck` automatically, so pass page title without "AstroDeck" → clean `<title>` tag (2026-03-15)
 
 ## Anti-Patterns
-- Meta Description unter 150 Zeichen: Lighthouse bewertet SEO auch bei 143 Zeichen mit 100/100, da die Mindestlänge kein hartes Kriterium ist. Das 150-Zeichen-Ziel im SKILL.md ist ein Best-Practice-Richtwert, kein Pflichtmass — aber trotzdem anstreben (2026-03-15)
-- Title-Duplikat "AstroDeck ... | AstroDeck" — entsteht wenn der Page-Title bereits den Brand-Namen enthält und das Layout nochmal `| AstroDeck` anhängt (2026-03-15)
+- Meta description under 150 characters: Lighthouse scores SEO at 100/100 even with 143 characters since minimum length is not a hard criterion. The 150-character target in SKILL.md is a best-practice guideline, not mandatory — but still worth aiming for (2026-03-15)
+- Title duplication "AstroDeck ... | AstroDeck" — happens when page title already contains the brand name and the layout appends `| AstroDeck` again (2026-03-15)

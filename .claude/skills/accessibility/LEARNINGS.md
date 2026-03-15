@@ -1,7 +1,7 @@
 # Learnings — Accessibility
 
-## Was funktioniert
-- `rel="noopener noreferrer"` auf allen externen Links — Privacy-Best-Practice, verhindert Referrer-Leakage (2026-03-15)
-- Lighthouse Accessibility 100 erreichbar mit: Skip-Link, aria-labels auf Icon-Buttons, aria-hidden auf dekorativen SVGs, korrekte Heading-Hierarchie (2026-03-15)
+## What works
+- `rel="noopener noreferrer"` on all external links — privacy best practice, prevents referrer leakage (2026-03-15)
+- Lighthouse Accessibility score of 100 achievable with: skip link, aria-labels on icon buttons, aria-hidden on decorative SVGs, correct heading hierarchy (2026-03-15)
 
 ## Anti-Patterns
