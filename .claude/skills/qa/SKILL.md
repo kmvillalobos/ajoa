@@ -74,10 +74,20 @@ npm run build         # Astro Build (0 Errors, 0 Warnings)
 
 | Gerät | Breite | Prüfen |
 |-------|--------|--------|
-| Mobile S | 375px | Layout, Navigation, Text-Größe |
-| Tablet | 768px | Grid-Umbrüche, Seitenleisten |
-| Laptop | 1024px | Volle Navigation, Grid-Layouts |
-| Desktop | 1280px | Max-Width Container, große Bilder |
+| Mobile S | 375px | Layout, Navigation, Text-Größe, Touch-Targets ≥44px, kein Overflow |
+| Tablet | 768px | Grid-Umbrüche (1→2 cols), Mobile-Subnav noch sichtbar |
+| Laptop | 1024px | Volle Navigation + Sidebar sichtbar, Grid-Layouts (2→3 cols) |
+| Desktop | 1280px | Max-Width Container zentriert, keine Stretching-Probleme |
+
+**Responsive Pflicht-Checks:**
+
+- [ ] Jede Seite mit Sidebar hat eine mobile Sub-Navigation (collapsible "On this page" dropdown)
+- [ ] `hidden lg:block` Elemente haben IMMER ein mobile Äquivalent (`lg:hidden`)
+- [ ] Kein horizontaler Scroll auf 375px Breite (besonders `<pre>` und `<table>`)
+- [ ] Navigation erreichbar auf Mobile (Hamburger-Menü ODER Dropdown)
+- [ ] Grid-Layouts stacken korrekt: `grid-cols-1` als Base, dann `md:grid-cols-2`
+- [ ] Container-Padding steigt mit Viewport: `px-4 sm:px-6 md:px-12`
+- [ ] Touch-Targets mindestens 44×44px (Links, Buttons, Nav-Items)
 
 ### Dark-Mode-Testing
 

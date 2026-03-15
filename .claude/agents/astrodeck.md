@@ -130,7 +130,7 @@ Before completing any task, verify:
 1. **Imports** — Using `@/` alias (not relative paths)
 2. **Styling** — CSS variables only (`bg-primary`, not `bg-blue-500`)
 3. **Types** — Props interface defined with TypeScript
-4. **Responsive** — Mobile-first breakpoints (`text-3xl md:text-5xl`, not desktop-down)
+4. **Responsive** — Mobile-first breakpoints (`text-3xl md:text-5xl`, not desktop-down). Verify layout at all breakpoints (375px, 768px, 1024px, 1280px). Check: navigation accessible on mobile, grids stack properly, no horizontal overflow, text readable, touch targets min 44px
 5. **Dark Mode** — Works in both themes (uses CSS variables, not hardcoded colors)
 6. **Astro 6 Patterns** — `ClientRouter` (not ViewTransitions), `z` from `astro/zod` (not `astro:content`)
 
@@ -144,6 +144,7 @@ Alert the user when detecting:
 | Accessibility | Image without alt text | `accessibility` | Warn + fix |
 | SEO | Missing meta description | `content-seo` | Warn |
 | Performance | Image > 200KB, unnecessary `client:load` | `ui-design` | Suggest optimization |
+| Responsiveness | Desktop-only layout, hidden mobile nav, overflow on small screens | `ui-design` | Block + fix |
 | DRY | Similar code in multiple sections | `astro` | Suggest reuse |
 | Deprecated | ViewTransitions, HSL colors, z from astro:content | `astro` | Fix immediately |
 | Wrong Tailwind | `tailwind.config.mjs`, `@astrojs/tailwind`, hardcoded colors | `tailwind` | Block + fix |

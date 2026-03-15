@@ -76,13 +76,49 @@ Features:   grid md:grid-cols-2 lg:grid-cols-3 gap-8
 - Immer `bg-card` (nicht `bg-white` oder `bg-gray-50`)
 - Padding: `p-6` Standard, `p-8` für große Cards
 
+### Responsive Design Rules
+
+Every component and page MUST be verified at all breakpoints before completion.
+
+**Breakpoints (test in this order):**
+
+| Breakpoint | Width | Key checks |
+|------------|-------|------------|
+| Mobile S | 375px | Single column, no horizontal overflow, readable text, touch targets ≥44px |
+| Mobile L | 428px | Same as above, slightly more breathing room |
+| Tablet | 768px (`md:`) | Grid columns kick in (1→2), sidebar may still be hidden |
+| Laptop | 1024px (`lg:`) | Full navigation visible, sidebar navigation appears |
+| Desktop | 1280px (`xl:`) | Max-width containers centered, no stretching |
+
+**Responsive patterns:**
+
+```
+Navigation:     Mobile = collapsible dropdown/hamburger, lg: = sidebar or full nav
+Grids:          grid-cols-1 → md:grid-cols-2 → lg:grid-cols-3
+Sidebar:        lg:hidden → lg:block (absolute positioned, outside flow)
+Mobile subnav:  Sticky collapsible "On this page" dropdown (lg:hidden)
+Typography:     text-3xl md:text-5xl (scale up, never scale down)
+Padding:        px-4 sm:px-6 md:px-12 (increase with viewport)
+```
+
+**Common responsive anti-patterns to catch:**
+
+- `hidden` without a mobile alternative (content disappears on mobile)
+- Fixed widths (`w-[500px]`) without responsive fallback
+- Sidebar navigation only visible on desktop with no mobile equivalent
+- Horizontal scroll caused by wide `<pre>` blocks without `overflow-x-auto`
+- Touch targets smaller than 44×44px on mobile
+- Text too small on mobile (minimum `text-sm` / 14px for body)
+
 ### Design-Consistency-Checklist
 
 - [ ] Heading-Hierarchie eingehalten (h1 → h2 → h3, kein Überspringen)
 - [ ] Einheitliche Section-Paddings (`py-20 px-6`)
 - [ ] Farben nur via CSS-Variablen (`text-primary`, nicht `text-blue-500`)
 - [ ] Konsistente Border-Radius (`rounded-xl`)
-- [ ] Mobile-first Responsive (Breakpoints: `md:` und `lg:`)
+- [ ] Mobile-first Responsive (alle Breakpoints geprüft: 375px, 768px, 1024px, 1280px)
+- [ ] Mobile Navigation vorhanden (kein `hidden lg:block` ohne mobile Alternative)
+- [ ] Kein horizontaler Overflow auf Mobile
 - [ ] Dark Mode getestet
 
 ## Vor dem Anwenden
