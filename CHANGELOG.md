@@ -2,6 +2,28 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [2.0.2] - 2026-03-15
+
+### Added
+
+- Self-improving skill system with 6 domain skills (ui-design, tailwind, astro, accessibility, qa, content-seo)
+- `/launch-check` command for production-readiness checks across all skill KPIs
+- Footer: "for templatedeck.com" link in creator section
+
+### Fixed
+
+- Title redundancy: "AstroDeck" no longer appears twice in `<title>` tag
+- Inline styles replaced with Tailwind utilities (`z-0`, `z-10`)
+- Hardcoded RGBA shadow replaced with themeable `shadow-primary/40`
+- ESLint errors: empty interfaces, triple-slash reference
+- TypeScript error in `rss.xml.ts`
+- Section padding consistency (`py-32` → `py-20 px-6`)
+- Card border-radius consistency (`rounded-lg` → `rounded-xl`)
+- Heading font-weight hierarchy (`font-bold` → `font-semibold` for h3)
+- External links: added `noreferrer` to `rel` attribute
+
+---
+
 ## [2.0.1] - 2026-03-14
 
 ### Added
