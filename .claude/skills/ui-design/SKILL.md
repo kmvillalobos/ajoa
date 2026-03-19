@@ -1,6 +1,6 @@
 ---
 name: ui-design
-description: Visual hierarchy, spacing, typography, OKLCH color theory, and layout patterns for AstroDeck projects. Use when creating or reviewing UI components, adjusting spacing, typography, or visual consistency.
+description: Use when creating or modifying any visible UI element, adjusting spacing or typography, reviewing visual consistency, or when Lighthouse Performance drops below 90.
 ---
 
 # UI/UX Design Skill
@@ -120,6 +120,16 @@ Padding:        px-4 sm:px-6 md:px-12 (increase with viewport)
 - [ ] Mobile Navigation vorhanden (kein `hidden lg:block` ohne mobile Alternative)
 - [ ] Kein horizontaler Overflow auf Mobile
 - [ ] Dark Mode getestet
+
+## Non-Negotiable
+
+Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "nur einem schnellen Prototyp":
+
+- **Kein Commit ohne Responsive-Check.** "Machen wir später responsive" funktioniert nie — es wird vergessen und User sehen eine kaputte Mobile-Version.
+- **Section-Padding ist `py-20 px-6`.** "Etwas mehr Luft mit `py-32`" zerstört die visuelle Konsistenz über alle Sections hinweg.
+- **Farben nur via CSS-Variablen.** "Nur hier kurz `bg-white`" bricht Dark Mode sofort — ohne dass man es merkt bis jemand umschaltet.
+- **Kein `rounded-lg` oder `rounded-md`.** Das Design System nutzt `rounded-xl`. Inkonsistenz fällt auf, auch wenn einzelne Abweichungen "besser aussehen".
+- **Mobile-first ist Pflicht.** Desktop-first "und dann anpassen" produziert Overflow, zu kleine Touch-Targets und fehlende Navigation auf Mobile.
 
 ## Vor dem Anwenden
 

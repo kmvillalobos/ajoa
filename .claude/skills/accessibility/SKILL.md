@@ -1,6 +1,6 @@
 ---
 name: accessibility
-description: WCAG 2.1 AA compliance, ARIA patterns, keyboard navigation, contrast, and screen reader support. Use when creating interactive components, reviewing accessibility, or fixing a11y issues.
+description: Use when creating or modifying any UI element visible to the user, reviewing HTML markup, adding interactive elements, or when Lighthouse Accessibility drops below 90.
 ---
 
 # Accessibility Skill
@@ -122,6 +122,16 @@ focus:outline-none focus-visible:ring-2 focus-visible:ring-ring
 - [ ] Logo-Link hat beschreibenden `aria-label` (z.B. "AstroDeck — Zur Startseite")
 - [ ] Social-Links haben `aria-label` mit Plattform-Name
 - [ ] Cookie-Banner: Keyboard-navigierbar, Focus-Trap
+
+## Non-Negotiable
+
+Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "ist nur ein internes Tool":
+
+- **Kein Element ohne alt-Text.** Auch nicht "weil es ein Template ist" — Templates setzen den Standard für tausende Projekte die darauf aufbauen.
+- **Kein `div` statt `button` für klickbare Elemente.** Auch nicht "weil es einfacher ist". Ein `div` ist nicht fokussierbar, nicht per Tastatur bedienbar, und wird von Screen Readern ignoriert.
+- **Kein Commit ohne Heading-Hierarchie.** "Ist nur eine Landingpage" ist keine Ausrede — Screen Reader navigieren via Headings.
+- **Dark Mode ist Pflicht ab Tag 1.** "Machen wir später" funktioniert nicht — CSS-Variablen müssen von Anfang an stimmen, Nachbesserung ist doppelte Arbeit.
+- **Keyboard-Navigation ist kein Nice-to-have.** "User nutzen eh nur die Maus" ist falsch — 25% der Nutzer verwenden Tastatur, Assistive Technology oder beides.
 
 ## Vor dem Anwenden
 

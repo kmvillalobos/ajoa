@@ -1,6 +1,6 @@
 ---
 name: astro
-description: Astro 6 framework patterns including Islands architecture, Content Collections, routing, and build optimization. Use when creating pages, components, or troubleshooting Astro-specific issues.
+description: Use when creating or modifying .astro/.tsx files, configuring astro.config.mjs, working with Content Collections, or when TypeScript or build errors occur.
 ---
 
 # Astro Framework Skill
@@ -168,6 +168,16 @@ import { Button } from '@/components/ui/button';
 // ❌
 import Hero from '../../components/sections/Hero.astro';
 ```
+
+## Non-Negotiable
+
+Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "funktioniert doch":
+
+- **Kein `ViewTransitions`.** Immer `ClientRouter`. "Aber die Doku sagt ViewTransitions" — die Doku ist veraltet, Astro 6 nutzt ClientRouter.
+- **Kein `z` aus `astro:content` oder `astro:schema`.** Immer `import { z } from 'astro/zod'`. Andere Imports kompilieren, brechen aber bei Content Collections.
+- **Kein Commit mit TypeScript-Fehlern.** "Ist nur ein Type-Fehler, funktioniert trotzdem" — Type-Fehler in .astro-Dateien werden zu Runtime-Bugs.
+- **Immer `@/` Import-Alias.** Relative Imports (`../../`) funktionieren, aber jedes Datei-Verschieben bricht sie. `@/` ist refactoring-sicher.
+- **Kein `client:load` ohne guten Grund.** `client:visible` oder `client:idle` sind fast immer besser. "Brauche ich sofort" stimmt selten für below-the-fold Elemente.
 
 ## Vor dem Anwenden
 

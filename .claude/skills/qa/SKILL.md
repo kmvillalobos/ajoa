@@ -1,6 +1,6 @@
 ---
 name: qa
-description: Testing, validation, code quality, and launch readiness for AstroDeck projects. Use when running audits, checking build quality, or preparing for production deployment.
+description: Use when completing any task (final validation step), running audits, preparing for deployment, or when ESLint/TypeScript/build errors occur.
 ---
 
 # QA Skill
@@ -103,6 +103,16 @@ npm run build         # Astro Build (0 Errors, 0 Warnings)
 - [ ] Safari (WebKit)
 - [ ] Mobile Safari (iOS)
 - [ ] Chrome Mobile (Android)
+
+## Non-Negotiable
+
+Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "ist nur ein kleines Update":
+
+- **Kein Commit ohne `npm run build`.** "Hab nur Text geändert" — auch Content-Änderungen können den Build brechen (fehlende Frontmatter-Felder, kaputte Links).
+- **Kein ESLint-Ignore ohne Kommentar.** `// eslint-disable-next-line` ist erlaubt, aber nur mit Begründung warum die Regel hier nicht greift.
+- **Kein Überspringen der QA-Pipeline.** "Ist dringend" ist keine Ausnahme. Die Pipeline (`lint → format → tsc → build`) dauert unter 30 Sekunden.
+- **Lighthouse immer alle 4 Kategorien.** Nie nur Performance messen und den Rest ignorieren. Ein Score-Drop in einer Kategorie ist ein Blocker.
+- **Responsive-Test ist Teil von QA.** "Sieht auf meinem Monitor gut aus" zählt nicht. Mindestens 375px und 1280px müssen geprüft werden.
 
 ## Vor dem Anwenden
 

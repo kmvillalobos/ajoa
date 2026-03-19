@@ -2,6 +2,18 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [3.0.3] - 2026-03-19
+
+### Added
+
+- Non-Negotiable sections in all 6 domain skills — pressure-resistant rules that prevent common rationalizations ("dark mode later", "just a quick hardcoded color", "only a prototype")
+- Skill Chains table in AGENTS.md — mandatory skill execution order per task type (e.g. new section = ui-design → tailwind → accessibility → qa)
+
+### Changed
+
+- Optimized all 7 skill descriptions to trigger-only format (no content summary) for better skill discovery
+- Inspired by [superpowers](https://github.com/obra/superpowers) agent framework patterns
+
 ## [3.0.2] - 2026-03-19
 
 ### Changed

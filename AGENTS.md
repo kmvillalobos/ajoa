@@ -557,6 +557,23 @@ Use these CSS classes on `<section>` elements to alternate visual rhythm:
 
 ---
 
+## Skill Chains (Pflicht-Reihenfolge)
+
+Jeder Task-Typ hat eine definierte Skill-Chain. **Kein Task ist fertig, bevor die gesamte Chain durchlaufen ist.** Die letzte Stufe (meist `qa`) validiert das Endergebnis.
+
+| Task-Typ | Skill-Chain |
+|----------|-------------|
+| Neue Section | ui-design → tailwind → accessibility → qa |
+| Neues UI-Component | tailwind → accessibility → qa |
+| Neue Seite | astro → ui-design → content-seo → accessibility → qa |
+| Theme-Änderung | tailwind → ui-design → accessibility |
+| Blog-Content | content-seo → accessibility |
+| Bugfix/Refactor | qa (am Ende) |
+
+**Bedeutung:** Jeder Skill in der Chain muss konsultiert und seine Regeln eingehalten werden — in der angegebenen Reihenfolge. Wird ein Skill übersprungen, ist der Task nicht abgeschlossen.
+
+---
+
 ## Common Tasks
 
 ### Create a New Page

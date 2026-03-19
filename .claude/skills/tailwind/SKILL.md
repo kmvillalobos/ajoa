@@ -1,6 +1,6 @@
 ---
 name: tailwind
-description: Tailwind CSS v4 expertise including @theme directive, OKLCH colors, utilities, and dark mode patterns. Use when working with styling, colors, or Tailwind configuration.
+description: Use when writing or reviewing any CSS class, changing colors, modifying globals.css, or when hardcoded colors or inline styles are detected.
 ---
 
 # Tailwind CSS Skill
@@ -103,6 +103,16 @@ Farben NICHT mit `dark:` Prefix steuern. Stattdessen CSS-Variablen nutzen, die a
 <!-- ✅ Richtig -->
 <div class="bg-background text-foreground">
 ```
+
+## Non-Negotiable
+
+Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "nur einem schnellen Fix":
+
+- **Keine hardcoded Colors.** `bg-blue-500` ist nie "nur vorübergehend" — es wird vergessen und bricht beim nächsten Theme-Wechsel.
+- **Keine inline styles.** Auch nicht "nur für diesen einen Sonderfall". Tailwind Utilities decken alles ab.
+- **OKLCH only.** "HSL ist lesbarer" ist kein Argument — das gesamte Design System basiert auf OKLCH. Mischen zerstört die Farbkonsistenz.
+- **Kein `tailwind.config.mjs`.** Auch nicht "weil ein Package es erwartet". Config lebt in CSS via `@theme`.
+- **Kein `@astrojs/tailwind`.** AstroDeck nutzt `@tailwindcss/vite`. Die alte Integration ist inkompatibel mit Tailwind v4.
 
 ## Vor dem Anwenden
 

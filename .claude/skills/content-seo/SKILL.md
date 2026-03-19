@@ -1,6 +1,6 @@
 ---
 name: content-seo
-description: Content Collections, meta tags, OpenGraph, structured data, RSS, and sitemap configuration. Use when working with blog content, SEO optimization, or meta tag management.
+description: Use when creating or editing pages, blog posts, or content files, adding meta tags, or when Lighthouse SEO drops below 90.
 ---
 
 # Content & SEO Skill
@@ -167,6 +167,16 @@ Für Blog-Posts:
 - `<h2>` für Hauptabschnitte
 - `<h3>` für Unterabschnitte
 - Keine Ebenen überspringen (h1 → h3 ohne h2)
+
+## Non-Negotiable
+
+Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "SEO ist nicht so wichtig":
+
+- **Jede Seite braucht eine Meta-Description.** "Ist nur eine interne Seite" — Google indexiert alles was öffentlich erreichbar ist.
+- **Jede Seite braucht genau ein `<h1>`.** Null oder mehrere h1 zerstören die Heading-Hierarchie und kosten SEO-Punkte.
+- **Keine doppelten Titles.** "AstroDeck ... | AstroDeck" passiert wenn der Page-Title den Brand enthält — das Layout hängt ihn automatisch an.
+- **Canonical URL ist Pflicht.** Auch bei "einfachen" Seiten. Ohne Canonical entstehen Duplicate-Content-Probleme bei Crawlern.
+- **Structured Data nicht raten.** JSON-LD Schema muss valide sein. Lieber weglassen als fehlerhaftes Schema ausliefern — Google bestraft invalides Markup.
 
 ## Vor dem Anwenden
 

@@ -1,6 +1,6 @@
 ---
 name: readme
-description: AstroDeck project documentation and component library reference. Use when working with AstroDeck projects, creating pages, components, or needing to understand the project structure.
+description: Use when starting work on an AstroDeck project, needing to understand the project structure, or looking up available components, sections, and layouts.
 ---
 
 # AstroDeck README Skill
