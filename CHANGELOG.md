@@ -2,6 +2,12 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [3.0.2] - 2026-03-19
+
+### Changed
+
+- Updated Astro from 6.0.4 to 6.0.6
+
 ## [3.0.1] - 2026-03-16
 
 ### Added
