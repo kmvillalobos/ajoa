@@ -2,6 +2,26 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [3.1.0] - 2026-03-26
+
+### Added
+
+- Hybrid AI Architecture combining AstroDeck skills with centralized design knowledge and multi-agent reviews
+- `system/globals/` — 8 canonical design knowledge files (colors, typography, spacing, interaction, imagery, effects, responsiveness, accessibility)
+- `system/prompts/` — 7 standalone self-audit prompts that work in any AI tool (ChatGPT, Gemini, Cursor, Windsurf, Copilot)
+- Plenum multi-agent review — `/plenum` command spawns 6 domain-specific review agents (Design, UX, Accessibility, Performance, SEO, Code) with scope-based auto-selection
+- 6 review agent definitions in `.claude/agents/` for parallel quality reviews
+- New skill chains: Pre-Launch Review, Design System Change, New globals Token
+- Plenum documentation in AGENTS.md
+- AI Architecture and Quality Gates sections in docs page
+- AI tool pathways in README (Claude Code, Cursor, Windsurf, Copilot, ChatGPT)
+
+### Changed
+
+- Skills slimmed down — design knowledge moved to `system/globals/`, skills now reference canonical sources
+- Updated `.cursor/rules`, `.windsurfrules`, `.github/copilot-instructions.md` with globals references
+- Stats on homepage: "5 AI Agents" → "8+ AI Tools" for accuracy
+
 ## [3.0.5] - 2026-03-19
 
 ### Added

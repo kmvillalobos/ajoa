@@ -1006,17 +1006,74 @@ astrodeck/
 ├── .github/copilot-instructions.md  # 📄 GitHub Copilot instructions
 ├── .windsurfrules         # 📄 Windsurf rules
 ├── src/registry.json      # 📦 Machine-readable component catalog
+├── system/
+│   ├── globals/           # 🎨 Canonical design knowledge (8 files)
+│   │   ├── colors.md      # OKLCH palette, token table, semantics
+│   │   ├── typography.md  # Font stack, heading scale
+│   │   ├── spacing.md     # Section padding, grids, containers
+│   │   ├── interaction.md # Timing tokens, easing, transitions
+│   │   ├── imagery.md     # Image formats, alt text conventions
+│   │   ├── effects.md     # Border radius, shadows, card pattern
+│   │   ├── responsiveness.md # Breakpoints, mobile-first rules
+│   │   └── accessibility.md  # WCAG pairs, focus styles, touch targets
+│   ├── prompts/           # 📋 Portable self-audit prompts (7 files)
+│   │   ├── self-audit-tokens.md
+│   │   ├── self-audit-accessibility.md
+│   │   ├── self-audit-performance.md
+│   │   ├── self-audit-seo.md
+│   │   ├── self-audit-darkmode.md
+│   │   ├── self-audit-responsive.md
+│   │   └── self-audit-cascade.md
+│   └── reports/           # 📊 Plenum review reports (gitignored)
 └── .claude/
     ├── agents/
-    │   └── astrodeck.md   # 🤖 Claude Code Agent (quality guardian)
+    │   ├── astrodeck.md   # 🤖 Main agent (quality guardian)
+    │   ├── design-review.md  # Plenum: visual design
+    │   ├── ux-review.md      # Plenum: UX & interaction
+    │   ├── a11y-review.md    # Plenum: accessibility
+    │   ├── perf-review.md    # Plenum: performance
+    │   ├── seo-review.md     # Plenum: SEO
+    │   └── code-review.md    # Plenum: code quality
     ├── commands/          # ⚡ Slash commands for common tasks
     │   ├── new-page.md    #    /new-page - Create pages
     │   ├── new-section.md #    /new-section - Create components
     │   ├── audit.md       #    /audit - Quality checks
-    │   └── theme.md       #    /theme - Customize colors
-    └── skills/
-        └── readme/        # 📚 Project documentation skill
+    │   ├── theme.md       #    /theme - Customize colors
+    │   ├── launch-check.md #   /launch-check - Pre-launch KPI check
+    │   └── plenum.md      #    /plenum - Multi-agent review
+    └── skills/            # 🧠 7 domain skills with KPIs
+        ├── ui-design/     # Visual hierarchy, spacing, typography
+        ├── tailwind/      # Tailwind v4, OKLCH, dark mode
+        ├── accessibility/ # WCAG 2.1 AA, ARIA, keyboard nav
+        ├── astro/         # Astro 6, Content Collections, TypeScript
+        ├── content-seo/   # Meta tags, structured data, RSS
+        ├── qa/            # Testing, Lighthouse, launch readiness
+        └── readme/        # Project documentation
 ```
+
+#### Design Knowledge Base (`system/globals/`)
+
+Central design decisions live in `system/globals/` as 8 standalone Markdown files covering colors, typography, spacing, interaction, imagery, effects, responsiveness, and accessibility. These files are the **canonical source of truth** for every design token and convention in AstroDeck. All skills, prompts, and tool configurations reference them, so changes propagate automatically. Both AI tools and human contributors can consult these files for consistent, informed design decisions without digging through source code.
+
+#### Portable Self-Audit Prompts (`system/prompts/`)
+
+Seven standalone quality-check prompts live in `system/prompts/`. They work in **any tool** -- Claude, ChatGPT, Gemini, Cursor Chat, Copilot Chat -- no special integration required. Copy-paste a prompt into your preferred AI assistant for an instant design or code audit.
+
+| Prompt | What It Checks |
+|--------|---------------|
+| `self-audit-tokens.md` | Design token usage, OKLCH consistency, theme compliance |
+| `self-audit-accessibility.md` | WCAG 2.1 AA, ARIA patterns, keyboard navigation, focus styles |
+| `self-audit-performance.md` | Image optimization, lazy loading, bundle size, Core Web Vitals |
+| `self-audit-seo.md` | Meta tags, structured data, heading hierarchy, OpenGraph |
+| `self-audit-darkmode.md` | Dark mode coverage, contrast ratios, smooth transitions |
+| `self-audit-responsive.md` | Breakpoint behavior, mobile-first patterns, touch targets |
+| `self-audit-cascade.md` | CSS specificity, Tailwind layer order, utility conflicts |
+
+#### Multi-Agent Review (Plenum)
+
+The `/plenum` command spawns domain-specific review agents **in parallel** -- Design, UX, Accessibility, Performance, SEO, and Code -- scoped to whatever changed. Each agent reviews independently, then findings are consolidated into a single prioritized report that surfaces conflicts (e.g., a performance optimization that hurts accessibility). Nothing is auto-implemented; the user reviews the report and decides what to act on.
+
+Plenum is available in **Claude Code** via the agents in `.claude/agents/`. For other tools, use the portable prompts from `system/prompts/` to run equivalent audits manually.
 
 #### `PROJECT.md` - Your Project Customization File ⭐
 
@@ -1090,8 +1147,22 @@ Pre-built commands for common tasks:
 | `/new-section` | Create a reusable section component |
 | `/audit` | Run quality checks (lint, accessibility, SEO) |
 | `/theme` | Customize design tokens and colors |
+| `/launch-check` | Pre-launch KPI check across all quality dimensions |
+| `/plenum` | Multi-agent review with parallel domain experts |
 
 **Usage:** Type the command in Claude Code to activate.
+
+### AI Tool Pathways
+
+Different tools get different levels of AstroDeck's hybrid AI architecture. Pick your tool and you're ready to go:
+
+| Tool | What You Get | Setup |
+|------|-------------|-------|
+| Claude Code | Full features: agents, skills, commands, plenum, skill chains | Works out of the box -- `.claude/` auto-detected |
+| Cursor | Design rules, conventions, code patterns | `.cursor/rules` + `system/globals/` for reference |
+| Windsurf | Design rules, conventions, code patterns | `.windsurfrules` + `system/globals/` for reference |
+| GitHub Copilot | Design rules, conventions, code patterns | `.github/copilot-instructions.md` + `system/globals/` |
+| ChatGPT / Gemini | Portable quality audits | Copy-paste prompts from `system/prompts/` |
 
 ### Benefits of AI-Friendly Documentation
 

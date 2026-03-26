@@ -270,6 +270,27 @@ Requires Node.js 22+.
 
 ---
 
+## Design Knowledge Base
+
+Central design decisions live in `system/globals/`. Read the relevant file BEFORE making design decisions:
+
+| Topic | File |
+|-------|------|
+| Colors | `system/globals/colors.md` |
+| Typography | `system/globals/typography.md` |
+| Spacing | `system/globals/spacing.md` |
+| Interaction | `system/globals/interaction.md` |
+| Accessibility | `system/globals/accessibility.md` |
+| Effects | `system/globals/effects.md` |
+| Responsiveness | `system/globals/responsiveness.md` |
+| Imagery | `system/globals/imagery.md` |
+
+## Self-Audit Prompts
+
+Portable quality checks in `system/prompts/`. Can be used in any tool via copy-paste — no Claude Code required.
+
+---
+
 ## Common Pitfalls to Avoid
 
 | Wrong | Correct |

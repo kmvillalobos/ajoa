@@ -5,115 +5,88 @@ description: Use when writing or reviewing any CSS class, changing colors, modif
 
 # Tailwind CSS Skill
 
+## Canonical Sources
+
+> This skill references the following globals — read them BEFORE starting work:
+> - `system/globals/colors.md` — OKLCH palette, token table, color semantics
+> - `system/globals/effects.md` — Border radius, shadows, card pattern
+
 ## Domain
 
-Tailwind v4 Expertise, @theme-Direktive, OKLCH, Utilities, Dark Mode
+Tailwind v4 Expertise, @theme Directive, OKLCH, Utilities, Dark Mode
 
 ## KPIs
 
-| Metrik | Ziel | Messung |
-|--------|------|---------|
+| Metric | Target | Measurement |
+|--------|--------|-------------|
 | Hardcoded Colors | 0 | Grep: `(bg\|text\|border)-(red\|blue\|green\|yellow\|purple\|pink\|gray\|slate\|zinc)-[0-9]+` in src/ |
 | Inline Styles | 0 | Grep: `style="` in src/**/*.astro |
-| tailwind.config.mjs | existiert nicht | Glob-Check |
+| tailwind.config.mjs | must not exist | Glob check |
 
-## Regeln
+## Rules
 
 ### Tailwind v4 Setup
 
-AstroDeck verwendet Tailwind CSS v4 via `@tailwindcss/vite` (NICHT `@astrojs/tailwind`).
+AstroDeck uses Tailwind CSS v4 via `@tailwindcss/vite` (NOT `@astrojs/tailwind`).
 
-- Kein `tailwind.config.mjs` — Config lebt in CSS
-- `@theme` Direktive für Token-Registration
-- `.dark` Klasse für Dark-Mode-Overrides
+- No `tailwind.config.mjs` — config lives in CSS
+- `@theme` directive for token registration
+- `.dark` class for dark mode overrides
 
 ### @theme vs .dark
 
 ```css
-/* Token-Registration (Tailwind kennt diese als Utilities) */
+/* Token registration (Tailwind recognizes these as utilities) */
 @theme {
   --color-primary: oklch(11.2% 0.0079 286.75);
   --color-primary-foreground: oklch(100% 0 0);
 }
 
-/* Dark-Mode-Overrides (nur Werte ändern, keine neuen Tokens) */
+/* Dark mode overrides (only change values, no new tokens) */
 .dark {
   --color-primary: oklch(100% 0 0);
   --color-primary-foreground: oklch(11.41% 0.0079 286.75);
 }
 ```
 
-### OKLCH Farbformat
+### Dark Mode Pattern
 
-```
-oklch(lightness% chroma hue)
-```
+Do NOT control colors with `dark:` prefix. Use CSS variables that automatically override in `.dark`:
 
-- **Lightness**: 0-100% (0 = schwarz, 100 = weiß)
-- **Chroma**: Farbintensität (0 = grau, 0.1-0.4 = lebendig)
-- **Hue**: Farbwinkel in Grad (0-360)
+```astro
+<!-- Wrong -->
+<div class="bg-white dark:bg-gray-900 text-black dark:text-white">
 
-Häufige Hues: Rot ~25, Orange ~70, Gelb ~100, Grün ~145, Blau ~250, Lila ~300
-
-### --color- Prefix
-
-Alle Farb-Tokens verwenden `--color-` Prefix:
-
-```css
---color-background      /* ✅ */
---background             /* ❌ veraltet */
+<!-- Correct -->
+<div class="bg-background text-foreground">
 ```
 
-### Utility-Patterns
+### Utility Patterns
 
 ```
 /* Responsive (mobile-first) */
 text-base md:text-lg lg:text-xl
 
-/* Hover/Focus States */
+/* Hover/Focus states */
 hover:bg-primary/90 focus:ring-2 focus:ring-ring
 
 /* Transitions */
 transition-colors duration-200
 
-/* Dark Mode (automatisch via CSS-Variablen) */
-bg-background text-foreground  /* funktioniert in beiden Modi */
-```
-
-### Common Mistakes
-
-| Fehler | Korrekt |
-|--------|---------|
-| `@astrojs/tailwind` | `@tailwindcss/vite` |
-| `tailwind.config.mjs` | CSS `@theme` Direktive |
-| `hsl(220 14% 96%)` | `oklch(96.27% 0.0044 286.32)` |
-| `bg-blue-500` | `bg-primary` |
-| `text-gray-600` | `text-muted-foreground` |
-| `dark:bg-gray-900` | `bg-background` (automatisch) |
-| `style="color: red"` | `text-destructive` |
-
-### Dark-Mode-Pattern
-
-Farben NICHT mit `dark:` Prefix steuern. Stattdessen CSS-Variablen nutzen, die automatisch in `.dark` überschrieben werden:
-
-```astro
-<!-- ❌ Falsch -->
-<div class="bg-white dark:bg-gray-900 text-black dark:text-white">
-
-<!-- ✅ Richtig -->
-<div class="bg-background text-foreground">
+/* Dark mode (automatic via CSS variables) */
+bg-background text-foreground  /* works in both modes */
 ```
 
 ## Non-Negotiable
 
-Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "nur einem schnellen Fix":
+These rules always apply — even under time pressure, even for "just a quick fix":
 
-- **Keine hardcoded Colors.** `bg-blue-500` ist nie "nur vorübergehend" — es wird vergessen und bricht beim nächsten Theme-Wechsel.
-- **Keine inline styles.** Auch nicht "nur für diesen einen Sonderfall". Tailwind Utilities decken alles ab.
-- **OKLCH only.** "HSL ist lesbarer" ist kein Argument — das gesamte Design System basiert auf OKLCH. Mischen zerstört die Farbkonsistenz.
-- **Kein `tailwind.config.mjs`.** Auch nicht "weil ein Package es erwartet". Config lebt in CSS via `@theme`.
-- **Kein `@astrojs/tailwind`.** AstroDeck nutzt `@tailwindcss/vite`. Die alte Integration ist inkompatibel mit Tailwind v4.
+- **No hardcoded colors.** `bg-blue-500` is never "just temporary" — it gets forgotten and breaks on the next theme change.
+- **No inline styles.** Not even "just for this special case." Tailwind utilities cover everything.
+- **OKLCH only.** "HSL is more readable" is not an argument — the entire design system is based on OKLCH. Mixing destroys color consistency.
+- **No `tailwind.config.mjs`.** Not even "because a package expects it." Config lives in CSS via `@theme`.
+- **No `@astrojs/tailwind`.** AstroDeck uses `@tailwindcss/vite`. The old integration is incompatible with Tailwind v4.
 
-## Vor dem Anwenden
+## Before Applying
 
-Lies `LEARNINGS.md` in diesem Verzeichnis, um bekannte Anti-Patterns zu vermeiden.
+Read `LEARNINGS.md` in this directory to avoid known anti-patterns.

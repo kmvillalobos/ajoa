@@ -3,6 +3,22 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const releases = [
   {
+    version: "3.1.0",
+    date: "2026-03-26",
+    tag: "minor",
+    title: "Hybrid AI Architecture — Design Knowledge Base, Portable Prompts & Multi-Agent Review",
+    highlights: [
+      "system/globals/ — 8 canonical design knowledge files (colors, typography, spacing, interaction, imagery, effects, responsiveness, accessibility)",
+      "system/prompts/ — 7 standalone self-audit prompts that work in any AI tool (ChatGPT, Gemini, Cursor, etc.)",
+      "Plenum multi-agent review — /plenum spawns 6 domain-specific review agents (Design, UX, A11y, Perf, SEO, Code) with scope-based auto-selection",
+      "Skills slimmed down — design knowledge moved to globals, skills now reference canonical sources",
+      "Updated .cursor/rules, .windsurfrules, .github/copilot-instructions.md with globals references",
+      "New skill chains for design system changes and pre-launch reviews",
+      "Updated docs page with AI Architecture and Quality Gates sections",
+      "Updated README with AI tool pathways, design knowledge base, and portable prompts documentation",
+    ],
+  },
+  {
     version: "3.0.5",
     date: "2026-03-19",
     tag: "patch",

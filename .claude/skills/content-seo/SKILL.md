@@ -5,19 +5,24 @@ description: Use when creating or editing pages, blog posts, or content files, a
 
 # Content & SEO Skill
 
+## Canonical Sources
+
+> This skill references the following globals — read them BEFORE starting work:
+> - `system/globals/imagery.md` — Alt text conventions, image formats
+
 ## Domain
 
 Content Collections, Meta Tags, OpenGraph, Structured Data, RSS, Sitemap
 
 ## KPIs
 
-| Metrik | Ziel | Messung |
-|--------|------|---------|
+| Metric | Target | Measurement |
+|--------|--------|-------------|
 | Lighthouse SEO | >90 | Lighthouse JSON → `categories.seo.score * 100` |
-| Seiten ohne Description | 0 | Grep: Seiten ohne `description` Prop |
-| Seiten ohne OG-Image | 0 | HTML-Check in dist/ |
+| Pages without Description | 0 | Grep: pages without `description` prop |
+| Pages without OG-Image | 0 | HTML check in dist/ |
 
-## Regeln
+## Rules
 
 ### Content Collections Schema
 
@@ -48,8 +53,8 @@ const blog = defineCollection({
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const title = "Seitentitel — Markenname";
-const description = "Beschreibung der Seite, 150-160 Zeichen, mit relevantem Keyword am Anfang.";
+const title = "Page Title — Brand Name";
+const description = "Page description, 150-160 characters, relevant keyword at the start.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -59,11 +64,11 @@ const description = "Beschreibung der Seite, 150-160 Zeichen, mit relevantem Key
 
 ### Meta-Description Best Practices
 
-- **Länge**: 150-160 Zeichen (Google schneidet bei ~160 ab)
-- **Keyword**: Relevantes Keyword am Anfang
-- **Unique**: Jede Seite braucht eine eigene Description
-- **Actionable**: Call-to-Action oder Nutzenversprechen
-- **Kein Duplicate**: Nie dieselbe Description für mehrere Seiten
+- **Length**: 150-160 characters (Google truncates at ~160)
+- **Keyword**: Relevant keyword at the beginning
+- **Unique**: Every page needs its own description
+- **Actionable**: Call-to-action or value proposition
+- **No duplicates**: Never the same description for multiple pages
 
 ### OpenGraph Tags
 
@@ -76,8 +81,8 @@ const description = "Beschreibung der Seite, 150-160 Zeichen, mit relevantem Key
 <meta property="og:site_name" content="{siteName}" />
 ```
 
-- OG-Image: 1200×630px, PNG oder JPG
-- Immer absolute URLs verwenden
+- OG image: 1200x630px, PNG or JPG
+- Always use absolute URLs
 
 ### Twitter Cards
 
@@ -94,9 +99,9 @@ const description = "Beschreibung der Seite, 150-160 Zeichen, mit relevantem Key
 <link rel="canonical" href={Astro.url.href} />
 ```
 
-- Jede Seite braucht eine Canonical URL
-- Verhindert Duplicate-Content-Probleme
-- AstroDeck setzt dies automatisch im BaseLayout
+- Every page needs a canonical URL
+- Prevents duplicate content issues
+- AstroDeck sets this automatically in BaseLayout
 
 ### Sitemap
 
@@ -105,16 +110,16 @@ const description = "Beschreibung der Seite, 150-160 Zeichen, mit relevantem Key
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://example.com',  // PFLICHT für Sitemap
+  site: 'https://example.com',  // REQUIRED for sitemap
   integrations: [sitemap()],
 });
 ```
 
-- `site` in `astro.config.mjs` MUSS gesetzt sein
-- Sitemap wird automatisch bei `npm run build` generiert
-- Ergebnis: `dist/sitemap-index.xml`
+- `site` in `astro.config.mjs` MUST be set
+- Sitemap is generated automatically on `npm run build`
+- Output: `dist/sitemap-index.xml`
 
-### RSS-Feed
+### RSS Feed
 
 ```typescript
 // src/pages/rss.xml.ts
@@ -148,7 +153,7 @@ export async function GET(context) {
 })} />
 ```
 
-Für Blog-Posts:
+For blog posts:
 
 ```astro
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -161,23 +166,16 @@ Für Blog-Posts:
 })} />
 ```
 
-### Heading-Hierarchie für SEO
-
-- Jede Seite genau ein `<h1>`
-- `<h2>` für Hauptabschnitte
-- `<h3>` für Unterabschnitte
-- Keine Ebenen überspringen (h1 → h3 ohne h2)
-
 ## Non-Negotiable
 
-Diese Regeln gelten immer — auch unter Zeitdruck, auch bei "SEO ist nicht so wichtig":
+These rules always apply — even under time pressure, even when "SEO isn't that important":
 
-- **Jede Seite braucht eine Meta-Description.** "Ist nur eine interne Seite" — Google indexiert alles was öffentlich erreichbar ist.
-- **Jede Seite braucht genau ein `<h1>`.** Null oder mehrere h1 zerstören die Heading-Hierarchie und kosten SEO-Punkte.
-- **Keine doppelten Titles.** "AstroDeck ... | AstroDeck" passiert wenn der Page-Title den Brand enthält — das Layout hängt ihn automatisch an.
-- **Canonical URL ist Pflicht.** Auch bei "einfachen" Seiten. Ohne Canonical entstehen Duplicate-Content-Probleme bei Crawlern.
-- **Structured Data nicht raten.** JSON-LD Schema muss valide sein. Lieber weglassen als fehlerhaftes Schema ausliefern — Google bestraft invalides Markup.
+- **Every page needs a meta description.** "It's just an internal page" — Google indexes everything that's publicly accessible.
+- **Every page needs exactly one `<h1>`.** Zero or multiple h1s destroy heading hierarchy and cost SEO points.
+- **No duplicate titles.** "AstroDeck ... | AstroDeck" happens when the page title includes the brand — the layout appends it automatically.
+- **Canonical URL is mandatory.** Even for "simple" pages. Without canonical, crawlers create duplicate content issues.
+- **Don't guess structured data.** JSON-LD schema must be valid. Better to omit than to ship invalid schema — Google penalizes invalid markup.
 
-## Vor dem Anwenden
+## Before Applying
 
-Lies `LEARNINGS.md` in diesem Verzeichnis, um bekannte Anti-Patterns zu vermeiden.
+Read `LEARNINGS.md` in this directory to avoid known anti-patterns.

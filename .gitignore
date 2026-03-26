@@ -28,3 +28,7 @@ npm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Plenum reports (local only, not tracked)
+system/reports/*.md
+!system/reports/.gitkeep

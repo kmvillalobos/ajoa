@@ -11,6 +11,8 @@ const sections = [
   { id: "customize-design", label: "Design Tokens" },
   { id: "add-blog-post", label: "Add a Blog Post" },
   { id: "build-deploy", label: "Build & Deploy" },
+  { id: "ai-architecture", label: "AI Architecture" },
+  { id: "quality-gates", label: "Quality Gates" },
   { id: "project-structure", label: "Project Structure" },
 ];
 ---
@@ -610,6 +612,114 @@ npm run preview</code></pre>
                 <li><strong>Netlify:</strong> Connect repo, auto-detects Astro</li>
                 <li><strong>Cloudflare:</strong> <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">npx wrangler pages deploy dist</code></li>
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Architecture -->
+        <section id="ai-architecture" class="scroll-mt-32 lg:scroll-mt-20">
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-2">AI Architecture</h2>
+            <p class="text-muted-foreground">AstroDeck includes a hybrid AI system with centralized design knowledge, portable quality prompts, and multi-agent reviews.</p>
+          </div>
+          <div class="space-y-6">
+            <div class="border rounded-xl p-6 bg-card">
+              <h3 class="font-semibold mb-1">Design Knowledge Base</h3>
+              <p class="text-sm text-muted-foreground mb-3">
+                <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/globals/</code> — 8 canonical design files
+              </p>
+              <p class="text-sm text-muted-foreground mb-3">
+                Central design decisions (colors, typography, spacing, effects, responsiveness, accessibility, imagery, interaction) live in <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/globals/</code>. These files are the single source of truth — referenced by all skills, prompts, and AI tool configurations.
+              </p>
+              <p class="text-sm text-muted-foreground">
+                Read these before making design decisions. Available to all tools.
+              </p>
+            </div>
+
+            <div class="border rounded-xl p-6 bg-card">
+              <h3 class="font-semibold mb-1">Self-Audit Prompts</h3>
+              <p class="text-sm text-muted-foreground mb-3">
+                <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/prompts/</code> — 7 standalone quality checks
+              </p>
+              <p class="text-sm text-muted-foreground mb-3">
+                Copy-paste quality audits that work in any AI tool — ChatGPT, Gemini, Cursor Chat, Claude. No special setup needed.
+              </p>
+              <ul class="space-y-1 text-sm text-muted-foreground">
+                <li><strong>Tokens</strong> — hardcoded colors, inline styles, OKLCH compliance</li>
+                <li><strong>Accessibility</strong> — WCAG 2.1 AA, contrast, keyboard nav</li>
+                <li><strong>Performance</strong> — Lighthouse, Core Web Vitals, images</li>
+                <li><strong>SEO</strong> — meta tags, structured data, heading hierarchy</li>
+                <li><strong>Dark Mode</strong> — token parity, contrast in both modes</li>
+                <li><strong>Responsive</strong> — breakpoints, overflow, touch targets</li>
+                <li><strong>Cascade</strong> — design token consistency across tiers</li>
+              </ul>
+            </div>
+
+            <div class="border rounded-xl p-6 bg-card">
+              <h3 class="font-semibold mb-1">Multi-Agent Review</h3>
+              <p class="text-sm text-muted-foreground mb-3">
+                Claude Code: <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">/plenum</code> — Scope-based parallel review
+              </p>
+              <p class="text-sm text-muted-foreground mb-3">
+                Spawns domain-specific review agents (Design, UX, Accessibility, Performance, SEO, Code) based on what changed. Consolidates findings, surfaces conflicts, produces a prioritized report. Nothing is auto-implemented.
+              </p>
+              <p class="text-sm text-muted-foreground">
+                Not using Claude Code? Use the self-audit prompts from <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/prompts/</code> individually.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quality Gates -->
+        <section id="quality-gates" class="scroll-mt-32 lg:scroll-mt-20">
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-2">Quality Gates</h2>
+            <p class="text-muted-foreground">AstroDeck uses skill chains to ensure every task meets quality standards before completion.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border rounded-xl p-6 bg-card">
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="h-4 w-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
+                </svg>
+                <h3 class="font-semibold text-sm">With AI</h3>
+              </div>
+              <div class="bg-muted/50 border border-border rounded-xl p-4">
+                <p class="text-sm italic">"Run a pre-launch review on my project. Check everything — design, accessibility, performance, SEO, and code quality."</p>
+              </div>
+              <p class="text-sm text-muted-foreground mt-3">
+                In Claude Code, this triggers <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">/plenum</code> which spawns parallel review agents. In other tools, use the self-audit prompts from <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/prompts/</code>.
+              </p>
+            </div>
+            <div class="border rounded-xl p-6 bg-card">
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="h-4 w-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+                <h3 class="font-semibold text-sm">Manual</h3>
+              </div>
+              <p class="text-sm text-muted-foreground mb-3">
+                Each task type follows a skill chain — a sequence of domain checks run in order:
+              </p>
+              <div class="border rounded-xl overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b text-left">
+                      <th class="py-2 px-4 font-medium text-muted-foreground">Task</th>
+                      <th class="py-2 px-4 font-medium text-muted-foreground">Skill Chain</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-border">
+                    <tr><td class="py-2 px-4 font-semibold">New Section</td><td class="py-2 px-4 font-mono text-xs">ui-design → tailwind → accessibility → qa</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold">New Page</td><td class="py-2 px-4 font-mono text-xs">astro → ui-design → content-seo → accessibility → qa</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold">Theme Change</td><td class="py-2 px-4 font-mono text-xs">tailwind → ui-design → accessibility</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold">Blog Content</td><td class="py-2 px-4 font-mono text-xs">content-seo → accessibility</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-sm text-muted-foreground mt-3">
+                Each skill in the chain must be consulted in order. The last skill (usually <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">qa</code>) validates the final result.
+              </p>
             </div>
           </div>
         </section>
