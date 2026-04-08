@@ -1,3 +1,10 @@
+<!-- templatedeck-backlink -->
+> 🎨 **ASTRODECK** is part of the [TemplateDeck](https://templatedeck.com) collection — handcrafted HTML and Astro templates for developers and designers.
+>
+> 📥 **[Download free on TemplateDeck](https://templatedeck.com/templates/astrodeck)** · 🌐 **[Browse all templates](https://templatedeck.com)**
+
+---
+
 # AstroDeck
 
 [![Version](https://img.shields.io/badge/version-3.1.1-blue.svg)](https://github.com/holger1411/astrodeck/releases)
