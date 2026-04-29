@@ -2,6 +2,17 @@
 
 All notable changes to AstroDeck are documented in this file.
 
+## [3.1.4] - 2026-04-29
+
+### Changed
+
+- Updated Astro from 6.1.7 to 6.1.10
+- Updated Tailwind CSS from 4.2.2 to 4.2.4
+
+### Added
+
+- DESIGN.md handling note in `AGENTS.md` — instructs AI agents how to apply a [Google Stitch DESIGN.md](https://github.com/google-labs-code/design.md) when a user drops one in (one-off translation into `globals.css` `@theme` tokens, no sync infrastructure)
+
 ## [3.1.3] - 2026-04-16
 
 ### Changed
