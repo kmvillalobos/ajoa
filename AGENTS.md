@@ -574,6 +574,16 @@ Central design decisions live in `system/globals/`. These files are the **canoni
 
 **Read the relevant globals file BEFORE making design decisions.**
 
+### Handling a `DESIGN.md` file
+
+If the user drops a `DESIGN.md` file at the project root and asks you to apply it, treat it as a [Google Stitch DESIGN.md](https://github.com/google-labs-code/design.md) — a YAML-frontmatter + Markdown design specification. To apply it:
+
+1. Read the YAML frontmatter (`colors`, `typography`, `rounded`, `spacing`, `components`).
+2. Translate color tokens into the `@theme` block of `src/styles/globals.css` as `--color-<name>: <oklch>;`. Convert hex (`#RRGGBB`) to OKLCH — AstroDeck uses OKLCH exclusively.
+3. If the file contains a `colors-dark` group (or you can derive sensible dark values), update the `.dark { ... }` block accordingly.
+4. For other groups (typography, spacing, etc.), apply only what maps cleanly to AstroDeck's existing token system; don't introduce new build infrastructure.
+5. This is a **one-off translation**, not a recurring sync — there is no script to maintain. After applying, the values live in `globals.css` and `system/globals/*.md` should be updated to reflect them.
+
 ---
 
 ## Skill Chains (Pflicht-Reihenfolge)
