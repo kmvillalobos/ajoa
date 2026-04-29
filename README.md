@@ -1062,6 +1062,12 @@ astrodeck/
 
 Central design decisions live in `system/globals/` as 8 standalone Markdown files covering colors, typography, spacing, interaction, imagery, effects, responsiveness, and accessibility. These files are the **canonical source of truth** for every design token and convention in AstroDeck. All skills, prompts, and tool configurations reference them, so changes propagate automatically. Both AI tools and human contributors can consult these files for consistent, informed design decisions without digging through source code.
 
+#### Bring Your Own Design with `DESIGN.md` (optional)
+
+Drop a [Google Stitch `DESIGN.md`](https://github.com/google-labs-code/design.md) file at the project root and tell your coding agent: *"Apply the design from DESIGN.md."* `DESIGN.md` is an open, AI-friendly format that bundles a brand's color palette, typography, spacing, and component styles into a single Markdown file with YAML frontmatter — readable by Claude Code, Cursor, Copilot, Windsurf, and Stitch alike.
+
+The agent will translate the YAML tokens into AstroDeck's `@theme` block in `src/styles/globals.css` (hex values are converted to OKLCH automatically) and update the relevant prose in `system/globals/` to match. This is a **one-off translation** — there is no sync script to maintain and no second source of truth. Edit `globals.css` directly afterwards as you would normally; `DESIGN.md` is just a starting point. AstroDeck includes a short note in `AGENTS.md` so any agent encountering a `DESIGN.md` knows what to do without further prompting.
+
 #### Portable Self-Audit Prompts (`system/prompts/`)
 
 Seven standalone quality-check prompts live in `system/prompts/`. They work in **any tool** -- Claude, ChatGPT, Gemini, Cursor Chat, Copilot Chat -- no special integration required. Copy-paste a prompt into your preferred AI assistant for an instant design or code audit.
