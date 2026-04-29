@@ -637,6 +637,19 @@ npm run preview</code></pre>
             </div>
 
             <div class="border rounded-xl p-6 bg-card">
+              <h3 class="font-semibold mb-1">Bring Your Own Design with <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">DESIGN.md</code></h3>
+              <p class="text-sm text-muted-foreground mb-3">
+                Optional — drop a <a href="https://github.com/google-labs-code/design.md" class="underline hover:text-foreground" rel="noopener">Google Stitch <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">DESIGN.md</code></a> file at the project root and tell your coding agent: <em>"Apply the design from DESIGN.md."</em>
+              </p>
+              <p class="text-sm text-muted-foreground mb-3">
+                <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">DESIGN.md</code> is an open, AI-friendly format that bundles a brand's color palette, typography, spacing, and component styles into a single Markdown file with YAML frontmatter — readable by Claude Code, Cursor, Copilot, Windsurf, and Stitch alike.
+              </p>
+              <p class="text-sm text-muted-foreground">
+                The agent translates the YAML tokens into the <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">@theme</code> block in <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">globals.css</code> (hex → OKLCH automatically) and updates <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/globals/</code> to match. One-off translation, no sync infrastructure. <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">AGENTS.md</code> includes a short note so any agent knows what to do.
+              </p>
+            </div>
+
+            <div class="border rounded-xl p-6 bg-card">
               <h3 class="font-semibold mb-1">Self-Audit Prompts</h3>
               <p class="text-sm text-muted-foreground mb-3">
                 <code class="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">system/prompts/</code> — 7 standalone quality checks
