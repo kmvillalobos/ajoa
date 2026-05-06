@@ -13,13 +13,11 @@ interface Props {
 const { variant = 'boxed' } = Astro.props;
 
 const navItems = [
-  { href: '/', label: 'Inicio' },
+  { href: '#inicio', label: 'Inicio' },
   { href: '#servicios', label: 'Servicios' },
   { href: '#proyectos', label: 'Proyectos' },
   { href: '#contacto', label: 'Contacto' },
 ];
-
-const currentPath = Astro.url.pathname;
 
 const containerClass =
   variant === 'fullWidth'
@@ -35,29 +33,18 @@ const containerClass =
       <Logo />
     </div>
 
+    <!-- Desktop Navigation -->
     <nav class="hidden items-center gap-7 text-sm md:flex">
       {
-        navItems.map((item) => {
-          const isActive =
-            item.href === '/'
-              ? currentPath === '/'
-              : currentPath.startsWith(item.href);
-
-          return (
-            <a
-              href={item.href}
-              class:list={[
-                'transition-colors',
-                isActive
-                  ? 'text-foreground font-semibold'
-                  : 'text-muted-foreground hover:text-foreground',
-              ]}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          );
-        })
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            data-nav-link={item.href.replace('#', '')}
+            class="nav-link transition-colors text-muted-foreground hover:text-foreground"
+          >
+            {item.label}
+          </a>
+        ))
       }
     </nav>
 
@@ -74,6 +61,7 @@ const containerClass =
       </a>
     </div>
 
+    <!-- Mobile Actions -->
     <div class="flex items-center gap-2 md:hidden">
       <ThemeToggle />
 
@@ -101,6 +89,7 @@ const containerClass =
     </div>
   </div>
 
+  <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden border-t border-border/60 bg-background md:hidden">
     <div
       class:list={[
@@ -109,27 +98,15 @@ const containerClass =
       ]}
     >
       {
-        navItems.map((item) => {
-          const isActive =
-            item.href === '/'
-              ? currentPath === '/'
-              : currentPath.startsWith(item.href);
-
-          return (
-            <a
-              href={item.href}
-              class:list={[
-                'block rounded-md px-3 py-2 text-base font-medium transition-colors',
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
-              ]}
-              aria-current={isActive ? 'page' : undefined}
-            >
-              {item.label}
-            </a>
-          );
-        })
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            data-mobile-nav-link={item.href.replace('#', '')}
+            class="mobile-nav-link block rounded-md px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+          >
+            {item.label}
+          </a>
+        ))
       }
 
       <a
@@ -191,6 +168,60 @@ const containerClass =
     });
   }
 
+  function initActiveSectionNavigation() {
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const desktopLinks = document.querySelectorAll('[data-nav-link]');
+    const mobileLinks = document.querySelectorAll('[data-mobile-nav-link]');
+
+    function setActiveLink(sectionId: string) {
+      desktopLinks.forEach((link) => {
+        const isActive = link.getAttribute('data-nav-link') === sectionId;
+
+        link.classList.toggle('text-foreground', isActive);
+        link.classList.toggle('font-semibold', isActive);
+        link.classList.toggle('text-muted-foreground', !isActive);
+      });
+
+      mobileLinks.forEach((link) => {
+        const isActive = link.getAttribute('data-mobile-nav-link') === sectionId;
+
+        link.classList.toggle('bg-accent', isActive);
+        link.classList.toggle('text-accent-foreground', isActive);
+        link.classList.toggle('text-muted-foreground', !isActive);
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
+        if (visibleEntries.length > 0) {
+          const currentSection = visibleEntries[0].target.id;
+          setActiveLink(currentSection);
+        }
+      },
+      {
+        rootMargin: '-35% 0px -55% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    if (window.location.hash) {
+      setActiveLink(window.location.hash.replace('#', ''));
+    } else {
+      setActiveLink('inicio');
+    }
+  }
+
   initMobileMenu();
-  document.addEventListener('astro:after-swap', initMobileMenu);
+  initActiveSectionNavigation();
+
+  document.addEventListener('astro:after-swap', () => {
+    initMobileMenu();
+    initActiveSectionNavigation();
+  });
 </script>
