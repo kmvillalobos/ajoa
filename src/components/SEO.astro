@@ -32,10 +32,10 @@ interface Props {
 const {
   title,
   description,
-  image = '/cover.png',
+  image = '/images/ajoa-hero.png',
   type = 'website',
   publishedTime,
-  author = 'AstroDeck',
+  author = 'AJOA Arquitectura',
   noindex = false,
 } = Astro.props;
 
@@ -44,7 +44,7 @@ const siteUrl = Astro.site ?? new URL('http://localhost:4321');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const socialImageURL = new URL(image, siteUrl);
 
-const siteName = 'AstroDeck';
+const siteName = 'AJOA Arquitectura';
 ---
 
 <!-- Primary Meta Tags -->
@@ -67,12 +67,14 @@ const siteName = 'AstroDeck';
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content="en_US" />
 
-{type === 'article' && publishedTime && (
-  <>
-    <meta property="article:published_time" content={publishedTime.toISOString()} />
-    <meta property="article:author" content={author} />
-  </>
-)}
+{
+  type === 'article' && publishedTime && (
+    <>
+      <meta property="article:published_time" content={publishedTime.toISOString()} />
+      <meta property="article:author" content={author} />
+    </>
+  )
+}
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -84,4 +86,4 @@ const siteName = 'AstroDeck';
 
 <!-- Sitemap & RSS -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" title="AstroDeck Blog RSS Feed" href="/rss.xml" />
+<!-- <link rel="alternate" type="application/rss+xml" title="AJOA Arquitectura RSS Feed" href="/rss.xml" /> -->

@@ -1,52 +1,20 @@
 ---
 /**
- * Logo Component
- *
- * AstroDeck brand logo with card deck icon and wordmark.
- * Used consistently across Header, Footer, and Auth layouts.
- *
- * @example
- * ```astro
- * <Logo />
- * <Logo showText={false} />
- * <Logo size="lg" />
- * ```
+ * Logo Component - AJOA Arquitectura
  */
-interface Props {
-  /** Show the "AstroDeck" text next to the icon */
-  showText?: boolean;
-  /** Size variant */
-  size?: 'sm' | 'md' | 'lg';
-  /** Additional CSS classes */
-  class?: string;
-}
-
-const { showText = true, size = 'md', class: className = '' } = Astro.props;
-
-const sizeClasses = {
-  sm: 'h-5 w-5',
-  md: 'h-6 w-6',
-  lg: 'h-8 w-8',
-};
-
-const textSizeClasses = {
-  sm: 'text-sm',
-  md: 'text-base',
-  lg: 'text-lg',
-};
 ---
 
-<a href="/" class="inline-flex items-center gap-3 font-bold text-foreground">
-  <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-neutral-950 text-white dark:bg-white dark:text-neutral-950">
-    <span class="text-sm font-black tracking-tight">A</span>
+<a href="/" class="inline-flex items-center gap-3 text-foreground">
+  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white ring-1 ring-border dark:bg-white dark:text-black">
+    <span class="text-[10px] font-black tracking-tight">AJOA</span>
   </div>
 
   <div class="leading-none">
     <span class="block text-base font-bold tracking-tight">
-      AJOA
+      AJOA Arquitectura
     </span>
-    <span class="block text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-      Arquitectura
+    <span class="block text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      Diseño y construcción
     </span>
   </div>
 </a>

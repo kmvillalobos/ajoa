@@ -1,64 +1,64 @@
 ---
 /**
- * Footer Component
- *
- * Unified footer with boxed and fullWidth variants.
- * Contains navigation links, resources, and creator info.
- *
- * @example
- * ```astro
- * <Footer />
- * <Footer variant="fullWidth" />
- * ```
+ * Footer Component - AJOA Arquitectura
  */
+
 import Logo from './Logo.astro';
 
 interface Props {
-  /** Layout variant - boxed (default) or fullWidth */
   variant?: 'boxed' | 'fullWidth';
 }
 
 const { variant = 'boxed' } = Astro.props;
 
-const footerLinks = {
-  astrodeck: [
-    { href: '/', label: 'Home' },
-    { href: '/docs', label: 'Docs' },
-    { href: '/sections', label: 'Sections' },
-    { href: '/changelog', label: 'Changelog' },
-  ],
-  pages: [
-    { href: '/blog', label: 'Blog' },
-    { href: '/content', label: 'Content' },
-    { href: '/login', label: 'Login' },
-  ],
-};
+const footerLinks = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#contacto', label: 'Contacto' },
+];
+
+const socialLinks = [
+  {
+    href: 'https://www.instagram.com/ajoa_arquitectura/',
+    label: 'Instagram',
+  },
+  {
+    href: 'https://wa.me/573217432752',
+    label: 'WhatsApp',
+  },
+];
 
 const containerClass =
-  variant === 'fullWidth' ? 'w-full px-4' : 'container max-w-5xl mx-auto px-4 sm:px-6';
+  variant === 'fullWidth'
+    ? 'w-full px-4'
+    : 'container max-w-7xl mx-auto px-4 sm:px-6';
 ---
 
-<footer class="border-t bg-background">
+<footer class="border-t border-border/60 bg-background">
   <div class:list={[containerClass, 'py-12']}>
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
       <!-- Brand -->
-      <div class="col-span-2 md:col-span-1">
+      <div>
         <Logo />
-        <p class="mt-4 text-sm text-muted-foreground">
-          Open-source Astro.js starter kit with ready-to-use components. Start building faster.
+
+        <p class="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
+          Diseñamos y construimos proyectos residenciales, comerciales y rurales,
+          integrando arquitectura, visualización 3D y acompañamiento constructivo.
         </p>
       </div>
 
-      <!-- AstroDeck -->
+      <!-- Navigation -->
       <div>
-        <h3 class="font-semibold mb-4">AstroDeck</h3>
+        <h3 class="mb-4 font-semibold">Navegación</h3>
+
         <ul class="space-y-2">
           {
-            footerLinks.astrodeck.map((link) => (
+            footerLinks.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  class="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </a>
@@ -68,16 +68,19 @@ const containerClass =
         </ul>
       </div>
 
-      <!-- Pages -->
+      <!-- Contact -->
       <div>
-        <h3 class="font-semibold mb-4">Pages</h3>
+        <h3 class="mb-4 font-semibold">Contacto</h3>
+
         <ul class="space-y-2">
           {
-            footerLinks.pages.map((link) => (
+            socialLinks.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </a>
@@ -85,42 +88,18 @@ const containerClass =
             ))
           }
         </ul>
-      </div>
 
-      <!-- Creator -->
-      <div>
-        <h3 class="font-semibold mb-4">Creator</h3>
-        <p class="text-sm text-muted-foreground">Created by Holger Könemann</p>
-        <p class="text-sm text-muted-foreground mt-1">
-          for <a
-            href="https://templatedeck.com"
-            class="font-medium text-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            templatedeck.com
-            <svg
-              class="h-3 w-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              ></path>
-            </svg>
-          </a>
+        <p class="mt-4 text-sm text-muted-foreground">
+          Cotizaciones: +57 321 743 2752
         </p>
       </div>
     </div>
 
     <!-- Copyright -->
-    <div class="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-      <p>&copy; {new Date().getFullYear()} AstroDeck. MIT License. Open Source.</p>
+    <div class="mt-10 border-t border-border/60 pt-8 text-center text-sm text-muted-foreground">
+      <p>
+        &copy; {new Date().getFullYear()} AJOA Arquitectura. Todos los derechos reservados.
+      </p>
     </div>
   </div>
 </footer>
