@@ -1,108 +1,56 @@
 ---
 /**
- * Header Component
- *
- * Unified header with boxed and fullWidth variants.
- * Includes responsive navigation, theme toggle, and mobile menu.
- *
- * @example
- * ```astro
- * <Header />
- * <Header variant="fullWidth" />
- * ```
+ * Header Component - AJOA Arquitectura
  */
+
 import ThemeToggle from './ThemeToggle.astro';
 import Logo from './Logo.astro';
 
 interface Props {
-  /** Layout variant - boxed (default) or fullWidth */
   variant?: 'boxed' | 'fullWidth';
 }
 
 const { variant = 'boxed' } = Astro.props;
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/pages', label: 'Pages' },
-  { href: '/sections', label: 'Sections' },
-  { href: '/components', label: 'Components' },
-  { href: '/docs', label: 'Docs' },
-  { href: '/changelog', label: 'Changelog' },
+  { href: '/', label: 'Inicio' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#contacto', label: 'Contacto' },
 ];
 
 const currentPath = Astro.url.pathname;
 
 const containerClass =
-  variant === 'fullWidth' ? 'w-full px-4' : 'container max-w-5xl mx-auto px-4 sm:px-6';
+  variant === 'fullWidth'
+    ? 'w-full px-4'
+    : 'container max-w-7xl mx-auto px-4 sm:px-6';
 ---
 
 <header
-  class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+  class="sticky top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70"
 >
-  <div class:list={[containerClass, 'flex h-14 items-center justify-between']}>
-    <!-- Logo -->
-    <div class="flex">
+  <div class:list={[containerClass, 'flex h-16 items-center justify-between']}>
+    <div class="flex items-center">
       <Logo />
     </div>
 
-    <!-- Desktop Navigation (hidden on mobile) -->
-    <nav class="hidden md:flex items-center gap-6 text-sm">
+    <nav class="hidden items-center gap-7 text-sm md:flex">
       {
         navItems.map((item) => {
-          if ('children' in item && item.children) {
-            const isChildActive = item.children.some((child: {href: string}) =>
-              currentPath.startsWith(child.href)
-            );
-            return (
-              <div class="relative group">
-                <button
-                  class:list={[
-                    'transition-colors inline-flex items-center gap-1',
-                    isChildActive
-                      ? 'text-foreground font-medium'
-                      : 'text-foreground/60 hover:text-foreground/80',
-                  ]}
-                >
-                  {item.label}
-                  <svg class="h-3 w-3 transition-transform group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
-                  <div class="rounded-xl border bg-card shadow-lg p-2 min-w-[140px]">
-                    {item.children.map((child: {href: string; label: string}) => {
-                      const isActive = currentPath.startsWith(child.href);
-                      return (
-                        <a
-                          href={child.href}
-                          class:list={[
-                            'block px-3 py-2 rounded-lg text-sm transition-colors',
-                            isActive
-                              ? 'text-foreground font-medium bg-muted'
-                              : 'text-foreground/60 hover:text-foreground hover:bg-muted',
-                          ]}
-                          aria-current={isActive ? 'page' : undefined}
-                        >
-                          {child.label}
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            );
-          }
-          const isActive = item.href === '/'
-            ? currentPath === '/'
-            : currentPath.startsWith(item.href);
+          const isActive =
+            item.href === '/'
+              ? currentPath === '/'
+              : currentPath.startsWith(item.href);
+
           return (
             <a
               href={item.href}
               class:list={[
                 'transition-colors',
                 isActive
-                  ? 'text-foreground font-medium'
-                  : 'text-foreground/60 hover:text-foreground/80',
+                  ? 'text-foreground font-semibold'
+                  : 'text-muted-foreground hover:text-foreground',
               ]}
               aria-current={isActive ? 'page' : undefined}
             >
@@ -113,103 +61,68 @@ const containerClass =
       }
     </nav>
 
-    <!-- Desktop Actions (hidden on mobile) -->
-    <div class="hidden md:flex items-center space-x-2">
+    <div class="hidden items-center gap-3 md:flex">
       <ThemeToggle />
+
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://wa.me/573217432752"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
+        class="inline-flex h-10 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:scale-105 hover:bg-primary/90"
       >
-        GitHub
-        <svg
-          class="h-3 w-3"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-        </svg>
+        Cotizar
       </a>
     </div>
 
-    <!-- Mobile Actions (visible on mobile) -->
-    <div class="flex md:hidden items-center space-x-2">
+    <div class="flex items-center gap-2 md:hidden">
       <ThemeToggle />
+
       <button
         id="mobile-menu-button"
-        class="inline-flex items-center justify-center rounded-md p-2 hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+        class="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
         aria-expanded="false"
-        aria-label="Toggle navigation menu"
+        aria-label="Abrir menú de navegación"
       >
-        <div class="w-6 h-6 relative flex flex-col justify-center items-center">
+        <div class="relative flex h-6 w-6 flex-col items-center justify-center">
           <span
             id="hamburger-top"
-            class="block w-5 h-0.5 bg-current transform transition-all duration-300 absolute -translate-y-1.5"
+            class="absolute block h-0.5 w-5 -translate-y-1.5 bg-current transition-all duration-300"
           ></span>
           <span
             id="hamburger-middle"
-            class="block w-5 h-0.5 bg-current transform transition-all duration-300"></span>
+            class="block h-0.5 w-5 bg-current transition-all duration-300"
+          ></span>
           <span
             id="hamburger-bottom"
-            class="block w-5 h-0.5 bg-current transform transition-all duration-300 absolute translate-y-1.5"
+            class="absolute block h-0.5 w-5 translate-y-1.5 bg-current transition-all duration-300"
           ></span>
         </div>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Menu (hidden by default) -->
-  <div id="mobile-menu" class="hidden md:hidden border-t">
+  <div id="mobile-menu" class="hidden border-t border-border/60 bg-background md:hidden">
     <div
       class:list={[
-        variant === 'fullWidth' ? 'px-4' : 'container max-w-5xl mx-auto px-4',
-        'py-4 space-y-3',
+        variant === 'fullWidth' ? 'px-4' : 'container max-w-7xl mx-auto px-4',
+        'space-y-2 py-4',
       ]}
     >
       {
         navItems.map((item) => {
-          if ('children' in item && item.children) {
-            return (
-              <div>
-                <p class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{item.label}</p>
-                {item.children.map((child: {href: string; label: string}) => {
-                  const isActive = currentPath.startsWith(child.href);
-                  return (
-                    <a
-                      href={child.href}
-                      class:list={[
-                        'block px-3 py-2 pl-6 rounded-md text-base font-medium transition-colors',
-                        isActive
-                          ? 'bg-accent text-accent-foreground'
-                          : 'hover:bg-accent hover:text-accent-foreground',
-                      ]}
-                      aria-current={isActive ? 'page' : undefined}
-                    >
-                      {child.label}
-                    </a>
-                  );
-                })}
-              </div>
-            );
-          }
-          const isActive = item.href === '/'
-            ? currentPath === '/'
-            : currentPath.startsWith(item.href);
+          const isActive =
+            item.href === '/'
+              ? currentPath === '/'
+              : currentPath.startsWith(item.href);
+
           return (
             <a
               href={item.href}
               class:list={[
-                'block px-3 py-2 rounded-md text-base font-medium transition-colors',
+                'block rounded-md px-3 py-2 text-base font-medium transition-colors',
                 isActive
                   ? 'bg-accent text-accent-foreground'
-                  : 'hover:bg-accent hover:text-accent-foreground',
+                  : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
               ]}
               aria-current={isActive ? 'page' : undefined}
             >
@@ -218,13 +131,14 @@ const containerClass =
           );
         })
       }
+
       <a
-        href="https://github.com/holger1411/astrodeck"
+        href="https://wa.me/573217432752"
         target="_blank"
         rel="noopener noreferrer"
-        class="block w-full text-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 py-2 px-4 mt-4"
+        class="mt-4 block w-full rounded-md bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
       >
-        GitHub
+        Cotizar por WhatsApp
       </a>
     </div>
   </div>
@@ -242,13 +156,17 @@ const containerClass =
       if (isOpen) {
         hamburgerTop?.classList.add('rotate-45', 'translate-y-0');
         hamburgerTop?.classList.remove('-translate-y-1.5');
+
         hamburgerMiddle?.classList.add('opacity-0', 'scale-0');
+
         hamburgerBottom?.classList.add('-rotate-45', 'translate-y-0');
         hamburgerBottom?.classList.remove('translate-y-1.5');
       } else {
         hamburgerTop?.classList.remove('rotate-45', 'translate-y-0');
         hamburgerTop?.classList.add('-translate-y-1.5');
+
         hamburgerMiddle?.classList.remove('opacity-0', 'scale-0');
+
         hamburgerBottom?.classList.remove('-rotate-45', 'translate-y-0');
         hamburgerBottom?.classList.add('translate-y-1.5');
       }
@@ -256,12 +174,14 @@ const containerClass =
 
     menuButton?.addEventListener('click', () => {
       const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
       mobileMenu?.classList.toggle('hidden');
       toggleHamburger(!isExpanded);
       menuButton.setAttribute('aria-expanded', String(!isExpanded));
     });
 
     const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+
     mobileMenuLinks?.forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu?.classList.add('hidden');
@@ -271,7 +191,6 @@ const containerClass =
     });
   }
 
-  // Run on initial load and after view transitions
   initMobileMenu();
   document.addEventListener('astro:after-swap', initMobileMenu);
 </script>
